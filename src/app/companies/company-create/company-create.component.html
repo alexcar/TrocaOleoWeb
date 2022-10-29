@@ -1,0 +1,113 @@
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+  <mat-card fxFlex="500px" fxFlex.xs="100%">
+    <mat-card-title>Create a new Company</mat-card-title>
+    <form [formGroup]="companyForm" autocomplete="off" novalidate (ngSubmit)="createCompany(companyForm.value)"
+      fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
+      <mat-card-content>
+        <mat-form-field>
+          <mat-label>Nome</mat-label>
+          <input matInput type="text" placeholder="Nome" formControlName="name" id="name">
+          <mat-hint align="end">Not more then 60 characters long.</mat-hint>
+          <mat-error *ngIf="hasError('name', 'required')">Name is required</mat-error>
+          <mat-error *ngIf="hasError('name', 'maxlength')">You have more than 60 characters</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" placeholder="Nome comercial" formControlName="commercialName" id="commercialName">
+          <mat-hint align="end">Not more then 60 characters long.</mat-hint>
+          <mat-error *ngIf="hasError('commercialName', 'required')">Nome comercial is required</mat-error>
+          <mat-error *ngIf="hasError('commercialName', 'maxlength')">You have more than 60 characters</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" placeholder="CNPJ" formControlName="cnpj" id="cnpj">
+          <mat-hint align="end">Not more then 18 characters long.</mat-hint>
+          <mat-error *ngIf="hasError('cnpj', 'required')">CNPJ is required</mat-error>
+          <mat-error *ngIf="hasError('cnpj', 'maxlength')">You have more than 18 characters</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" placeholder="Contato" formControlName="contact" id="contact">
+          <mat-hint align="end">Not more then 50 characters long.</mat-hint>
+          <mat-error *ngIf="hasError('contact', 'required')">Contato is required</mat-error>
+          <mat-error *ngIf="hasError('contact', 'maxlength')">You have more than 50 characters</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" placeholder="DDD" formControlName="ddd" id="ddd">
+          <mat-hint align="end">Not more then 3 characters long.</mat-hint>
+          <mat-error *ngIf="hasError('ddd', 'required')">DDD is required</mat-error>
+          <mat-error *ngIf="hasError('ddd', 'maxlength')">You have more than 3 characters</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" placeholder="Telefone" formControlName="phone" id="phone">
+          <mat-hint align="end">Not more then 9 characters long.</mat-hint>
+          <mat-error *ngIf="hasError('phone', 'required')">Telefone is required</mat-error>
+          <mat-error *ngIf="hasError('phone', 'maxlength')">You have more than 9 characters</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" placeholder="Site" formControlName="website" id="website">
+          <mat-hint align="end">Not more then 90 characters long.</mat-hint>
+          <mat-error *ngIf="hasError('website', 'required')">Site is required</mat-error>
+          <mat-error *ngIf="hasError('website', 'maxlength')">You have more than 90 characters</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" placeholder="Email" formControlName="email" id="email">
+          <mat-hint align="end">Not more then 90 characters long.</mat-hint>
+          <mat-error *ngIf="hasError('email', 'required')">Email is required</mat-error>
+          <mat-error *ngIf="hasError('email', 'maxlength')">You have more than 90 characters</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" placeholder="Endereço" formControlName="address" id="address">
+          <mat-hint align="end">Not more then 100 characters long.</mat-hint>
+          <mat-error *ngIf="hasError('address', 'required')">Endereço is required</mat-error>
+          <mat-error *ngIf="hasError('address', 'maxlength')">You have more than 100 characters</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" placeholder="Bairro" formControlName="Neighborhood" id="Neighborhood">
+          <mat-hint align="end">Not more then 50 characters long.</mat-hint>
+          <mat-error *ngIf="hasError('Neighborhood', 'required')">Bairro is required</mat-error>
+          <mat-error *ngIf="hasError('Neighborhood', 'maxlength')">You have more than 50 characters</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" placeholder="Cidade" formControlName="county" id="county">
+          <mat-hint align="end">Not more then 50 characters long.</mat-hint>
+          <mat-error *ngIf="hasError('county', 'required')">Cidade is required</mat-error>
+          <mat-error *ngIf="hasError('county', 'maxlength')">You have more than 50 characters</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" placeholder="Estado" formControlName="uf" id="uf">
+          <mat-hint align="end">Not more then 2 characters long.</mat-hint>
+          <mat-error *ngIf="hasError('uf', 'required')">Estado is required</mat-error>
+          <mat-error *ngIf="hasError('uf', 'maxlength')">You have more than 2 characters</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" placeholder="CEP" formControlName="zipcode" id="zipcode">
+          <mat-hint align="end">Not more then 10 characters long.</mat-hint>
+          <mat-error *ngIf="hasError('zipcode', 'required')">CEP is required</mat-error>
+          <mat-error *ngIf="hasError('zipcode', 'maxlength')">You have more than 10 characters</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" placeholder="Pais" formControlName="country" id="country">
+          <mat-hint align="end">Not more then 30 characters long.</mat-hint>
+          <mat-error *ngIf="hasError('country', 'required')">Pais is required</mat-error>
+          <mat-error *ngIf="hasError('country', 'maxlength')">You have more than 30 characters</mat-error>
+        </mat-form-field>
+
+      </mat-card-content>
+      <mat-card-actions align="start">
+        <button mat-raised-button color="primary" [disabled]="!companyForm.valid">Create</button>
+        <button type="button" mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</section>
