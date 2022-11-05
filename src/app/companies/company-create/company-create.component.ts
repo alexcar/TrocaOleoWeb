@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+
 import { CompanyForCreation } from 'src/app/model/company-for-creation.model';
-import { RepositoryService } from 'src/app/shared/repository.service';
+import { CompanyService } from 'src/app/shared/company.service';
+import { ErrorHandlerService } from 'src/app/shared/error-handler.service';
 import { Location } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
+import { RepositoryService } from 'src/app/shared/repository.service';
 import { SuccessDialogComponent } from 'src/app/shared/dialogs/success-dialog/success-dialog.component';
-import { ErrorHandlerService } from 'src/app/shared/error-handler.service';
 
 @Component({
   selector: 'app-company-create',
@@ -20,7 +22,8 @@ export class CompanyCreateComponent implements OnInit {
     private location: Location,
     private repository: RepositoryService,
     private dialog: MatDialog,
-    private errorService: ErrorHandlerService
+    private errorService: ErrorHandlerService,
+    private companySerice: CompanyService
   ) { }
 
   ngOnInit(): void {
@@ -83,8 +86,9 @@ export class CompanyCreateComponent implements OnInit {
       userUpdate: '5CF7137C-AE20-497D-831D-8DF824697C8A'
     }
 
-    console.log(company);
+    // console.log(company);
     let apiUrl = 'companies';
+
     this.repository.create(apiUrl, company)
       .subscribe(res => {
         let dialogRef = this.dialog.open(SuccessDialogComponent, this.dialogConfig);
@@ -98,7 +102,10 @@ export class CompanyCreateComponent implements OnInit {
         this.errorService.dialogConfig = { ...this.dialogConfig };
         this.errorService.handlerError(error);
       })
-    )
+    );
+
+    // this.companySerice.create(company)
+    //   .subscribe
   }
 
 }

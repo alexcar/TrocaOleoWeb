@@ -7,6 +7,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { ErrorHandlerService } from 'src/app/shared/error-handler.service';
 import { Router } from '@angular/router';
 import { CompanyRepositoryService } from 'src/app/shared/company.repository.service';
+import { CompanyService } from 'src/app/shared/company.service';
 
 @Component({
   selector: 'app-company-list',
@@ -25,13 +26,14 @@ export class CompanyListComponent implements OnInit {
     private companyRepoService: CompanyRepositoryService,
     private repoService: RepositoryService,
     private errorService: ErrorHandlerService,
-    private router: Router) {
+    private router: Router,
+    private companyService: CompanyService) {
       this.companies = new Array<Company>();
      }
 
   ngOnInit(): void {
     // this.getAllCompanies();
-    this.getAllCompanies2();
+    this.getAllCompanies3();
   }
 
   ngAfterViewInit(): void {
@@ -52,6 +54,11 @@ export class CompanyListComponent implements OnInit {
 
   public getAllCompanies2 = () => {
     this.companyRepoService.getData('companies')
+      .subscribe(data => this.dataSource.data = data);
+  }
+
+  public getAllCompanies3 = () => {
+    this.companyService.getAll()
       .subscribe(data => this.dataSource.data = data);
   }
 
