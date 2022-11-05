@@ -1,0 +1,47 @@
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+  <mat-card fxFlex="500px" fxFlex.xs="100%">
+      <mat-card-title>Detalhes da Empresa</mat-card-title>
+      <mat-card-content>
+        <div fxLayout="column wrap" fxLayoutGap="5px">
+          <div fxLayout="row wrap" fxFlex>
+            <div fxFlex><strong>Nome:</strong></div>
+            <div fxFlex>{{company.name}}</div>
+          </div>
+
+          <div fxLayout="row wrap" fxFlex>
+            <div fxFlex><strong>Nome Comercial:</strong></div>
+            <div fxFlex>{{company.commercialName}}</div>
+          </div>
+
+          <div fxLayout="row wrap" fxFlex>
+            <div fxFlex><strong>CNPJ:</strong></div>
+            <div fxFlex>{{company.cnpj}}</div>
+          </div>
+
+          <div fxLayout="row wrap" fxFlex>
+            <div fxFlex><strong>Contato:</strong></div>
+            <div fxFlex>{{company.contact}}</div>
+          </div>
+
+          <div fxLayout="row wrap" fxFlex>
+            <div fxFlex><strong>Telefone:</strong></div>
+            <div fxFlex>({{company.ddd}}) {{company!.phone}}</div>
+          </div>
+
+          <!-- <div fxLayout="row wrap" fxFlex *ngIf='owner?.accounts.length <= 2; else advancedUser'>
+            <div fxFlex><strong>Type of user:</strong></div>
+            <div fxFlex class="beginner-color">Beginner user.</div>
+          </div>
+          <ng-template #advancedUser>
+            <div fxLayout="row wrap" fxFlex>
+              <div fxFlex><strong>Type of user:</strong></div>
+              <div fxFlex class="advanced-color">Advanced user</div>
+            </div>
+          </ng-template> -->
+        </div>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button type="button" mat-raised-button color="primary" (click)="onBack()">Voltar</button>
+      </mat-card-actions>
+    </mat-card>
+</section>
